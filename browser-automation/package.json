@@ -1,0 +1,27 @@
+{
+  "name": "browser-automation",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./index.js",
+  "scripts": {
+    "smoke": "node --experimental-specifier-resolution=node index.js",
+    "test": "jest",
+    "build": "webpack --config webpack.dev.js"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "moment": "2.29.1",
+    "selenium-webdriver": "*"
+  },
+  "devDependencies": {
+    "selenium-webdriver": "^4.13.0",
+    "@babel/cli": "^7.16.7",
+    "@babel/core": "^7.16.7",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
+    "babel-jest": "^27.4.2",
+    "jest": "^27.4.3",
+    "webpack": "5.72.0",
+    "webpack-cli": "^4.9.2"
+  }
+}
