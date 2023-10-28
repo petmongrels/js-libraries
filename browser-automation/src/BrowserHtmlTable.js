@@ -1,19 +1,22 @@
 import {By} from "selenium-webdriver";
 
-// thead/tr/th
 class BrowserHtmlTable {
-    async getTableData(tableElement, tableRelativeHeaderXPath) {
+    static async getTableData(tableElement, {tableHeaderXPath, tableRowXPath = "tbody/tr"}) {
         const header = new Map();
-        const headerCells = tableElement.findElements(By.tagName(tableRelativeHeaderXPath));
+        const headerCells = tableElement.findElements(By.tagName(tableHeaderXPath));
+        console.log('HEADER');
         headerCells.forEach((x, index) => {
-            header.set(index, x.getText().trim());
+            const headerCellText = x.getText().trim();
+            console.log(headerCellText);
+            header.set(index, headerCellText);
         })
-        const rows = await tableElement.findElements(By.tagName('tr'));
+        const rows = await tableElement.findElements(By.tagName(tableRowXPath));
         for (const row of rows) {
-            const columns = await row.findElements(By.tagName('td'));
-            for (const column of columns) {
-                const columnText = await column.getText();
-                console.log('Data from table: ' + columnText);
+            const cells = await row.findElements(By.tagName('td'));
+            console.log('ROW');
+            for (const cell of cells) {
+                const cellText = await cell.getText();
+                console.log(cellText);
             }
         }
     }

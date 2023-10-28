@@ -6,6 +6,6 @@ test('should use chrome from path', async function () {
 });
 
 test('should use chrome from the provided path', async function () {
-    const driver = SeleniumDriverFactory.createDriver("~/.cache/selenium/chromedriver");
+    const driver = SeleniumDriverFactory.createDriver({binaryPath: "~/.cache/selenium/chromedriver"});
     await driver.get('https://www.google.com').then(() => SeleniumDriverFactory.exitBrowser());
 });
