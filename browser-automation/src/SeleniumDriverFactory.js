@@ -17,10 +17,11 @@ class SeleniumDriverFactory {
         return driver;
     }
 
-    static exitBrowser() {
+    static async exitBrowser() {
         if (_.isNil(driver)) return;
 
-        driver.quit();
+        await driver.close();
+        await driver.quit();
         driver = null;
     }
 }
