@@ -66,7 +66,7 @@ let _getText = (endpoint) =>
     fetchFactory(endpoint, "GET", {headers: headers.textRequestResponse}, (response) => response.text());
 
 export const post = (endpoint, body, headerType = 'jsonRequestResponse') => {
-    let fullPath = `${getBaseApiUrl()}/${endpoint}`;
+    let fullPath = `${getBaseApiUrl()}${endpoint}`;
     console.log('requests', `POSTing to ${fullPath}`);
     let postBody = headerType === 'jsonRequestResponse' ? JSON.stringify(body) : body;
     return fetchFactory(fullPath, "POST", {body: postBody, headers: headers[headerType]}, (response) => {
@@ -75,7 +75,7 @@ export const post = (endpoint, body, headerType = 'jsonRequestResponse') => {
 };
 
 const put = (endpoint, body) => {
-    let fullPath = `${getBaseApiUrl()}/${endpoint}`;
+    let fullPath = `${getBaseApiUrl()}${endpoint}`;
     console.log('requests', `PUTing to ${fullPath}`);
     return fetchFactory(fullPath, "PUT", {body: JSON.stringify(body), headers: headers.jsonRequestResponse}, (response) => {
         return response.json();
@@ -83,7 +83,7 @@ const put = (endpoint, body) => {
 };
 
 const patch = (endpoint, body) => {
-    let fullPath = `${getBaseApiUrl()}/${endpoint}`;
+    let fullPath = `${getBaseApiUrl()}${endpoint}`;
     console.log('requests', `PATCHing to ${fullPath}`);
     return fetchFactory(fullPath, "PATCH", {body: JSON.stringify(body), headers: headers.jsonRequestResponse}, (response) => {
         return response.json();
