@@ -6,6 +6,7 @@ import ServerCallStatus from "./framework/api-client/ServerCallStatus.js";
 import DateTimeUtil from "./framework/util/DateTimeUtil.js";
 import Util from './Util.js';
 import FormIoForm from './formIo/Form.js';
+import ServerResponse from './framework/api-client/ServerResponse.js';
 
 export {
     ServerCallStatus,
@@ -16,5 +17,6 @@ export {
     RC,
     HeaderTypes,
     Util,
-    FormIoForm
+    FormIoForm,
+    ServerResponse
 };
